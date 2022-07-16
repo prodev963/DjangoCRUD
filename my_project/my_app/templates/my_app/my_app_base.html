@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD</title>
+     <!-- CSS only -->
+     <link rel="stylesheet"  type ="text/css" href="{% static '..//static/semantic-ui/semantic.css' %}">
+</head>
+<body>
+
+    <div class="ui inverted segment">
+        <div class="ui inverted secondary menu">
+          <a class="item" href="{% url 'index' %}">Home</a>
+          <a class="item" href="{% url 'admin:index' %}">Admin</a>
+          <a class="item" href="{% url 'my_app:list' %}">Students</a>
+        </div>
+      </div>
+
+      <div class="ui container">
+        <div class="ui grid">
+            <div class="eight wide column">
+                {% block body_block %}
+                
+                {% endblock %}
+            </div>
+            <div class="eight wide column">
+                <div class="ui centered banner test ad"></div>
+            </div>
+          </div>
+        
+      </div>
+     
+</body>
+</html>

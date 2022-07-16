@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+<div class="ui segmets">
+
+        <div class="ui segment">
+            <h2> Here you will have students list!
+              <a href="{% url 'my_app:create' %}"><button class="ui basic button">
+                <i class="icon user"></i>Add Student
+                </button>
+              </a>
+            </h2> 
+        </div>
+
+        <div class="ui segment">
+       <table class="ui celled table">
+         <thead>
+           <tr><th>Name</th>
+           <th>See More details</th>
+           </tr>
+         </thead>
+         <tbody>
+          {% for student in student_list %}
+              <tr>
+            <td data-label="Name">{{student.name}}</td>
+            <td><a href='{{student.id}}'>
+                <div class="ui animated button" tabindex="0">
+                    <div class="visible content">Details</div>
+                    <div class="hidden content">
+                      <i class="right arrow icon"></i>
+                    </div>
+                  </div>
+                  <a href="{% url 'my_app:update' pk=student.pk %}"><button class="positive ui button">Update</button></a>
+                  <a href="{% url 'my_app:delete' pk=student.pk %}"><button class="negative ui button">Delete</button></a>
+            </a>
+                  </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+         </table>
+        </div>
+</div>
+
+{% endblock %}

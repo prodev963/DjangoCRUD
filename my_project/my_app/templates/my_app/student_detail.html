@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+
+<div class="ui segments">
+    <div class="ui segment">
+        <h2>This is {{student_detail.name}}'s full details </h2>
+    </div>
+    <div class="ui segment">
+        <div class="ui card">
+            <div class="image">
+              <img src="https://img.freepik.com/premium-vector/student-avatar-illustration_47016-223.jpg">
+            </div>
+            <div class="content">
+              <a class="header"><i class="user icon"></i>{{student_detail.name}}</a>
+              <div class="meta">
+                <span class="date">{{student_detail.age}} y.o./{{student_detail.gender}}  </span>
+              </div>
+              <div class="description">
+                <p>Attented course: {{student_detail.course}}</p>
+                <p> Phone number: {{student_detail.phoneNumber}}</p>
+              </div>
+            </div>
+            <div class="extra content">
+              <a href="{% url 'my_app:update' pk=student_detail.pk %}">
+                <i class="info icon"></i> Update student
+              </a>
+              <a href="{% url 'my_app:delete' pk=student_detail.pk %}">
+                <i class="trash icon"></i> Delete student
+              </a>
+            </div>
+          </div>
+
+    </div>
+    <div class="ui segment">
+
+    </div>
+    
+</div>
+
+{% endblock %}
